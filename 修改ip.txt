@@ -1,0 +1,28 @@
+修改主机名
+修改 cloud.cfg 防止重启后主机名还原
+vi /etc/cloud/cloud.cfg
+# 该配置默认为 false，修改为 true 即可
+preserve_hostname: true
+修改主机名
+# 修改主机名
+hostnamectl set-hostname Nexus
+# 配置 hosts
+cat >> /etc/hosts << EOF
+192.168.10.131 Nexus
+EOF
+修改 IP
+编辑 vi /etc/netplan/50-cloud-init.yaml 配置文件，修改内容如下
+
+network:
+    ethernets:
+        ens33:
+          addresses: [192.168.10.131/24]
+          gateway4: 192.168.10.2
+          nameservers:
+            addresses: [192.168.10.2]
+    version: 2
+使用 netplan apply 命令让配置生效
+
+修改 DNS
+# 取消 DNS 行注释，并增加 DNS 配置如：114.114.114.114，修改后重启下计算机
+vi /etc/systemd/resolved.conf

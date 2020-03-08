@@ -1,0 +1,61 @@
+安装中需要设置镜像地址，我们使用阿里云镜像地址，http://mirrors.aliyun.com/ubuntu/
+sudo passwd root  --设置root密码
+root远程登录 
+	编辑SSH服务的配置文件sshd_config，修改SSH的端口和root用户权限。
+
+使用到的命令：（按字母“i”进入编辑模式，按ESC退出编辑模式，“:wq”保存退出）。
+
+root@dante:~# vim /etc/ssh/sshd_config
+
+1、找到# port 22所在的那一行，复制该行内容并修改。
+
+将“#port 22”修改为“port 22”（将前面的“#”去掉）。
+
+该行内容为设置SSHd服务的端口号
+
+2、找到#PermitRootLogin prohibit-password那一行，复制该行内容并修改。
+
+将“#PermitRootLogin prohibit-password”修改为“PermitRootLogin yes”
+————————————————
+
+
+	概述
+APT(Advanced Packaging Tool) 是 Debian/Ubuntu 类 Linux 系统中的软件包管理程序, 使用它可以找到想要的软件包, 而且安装、卸载、更新都很简便；也可以用来对 Ubuntu 进行升级; APT 的源文件为 /etc/apt/ 目录下的 sources.list 文件。
+
+修改数据源
+由于国内的网络环境问题，我们需要将 Ubuntu 的数据源修改为国内数据源，操作步骤如下：
+
+查看系统版本
+lsb_release -a
+# 输出如下
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 18.04.2 LTS
+Release:        18.04
+Codename:       bionic
+注意： Codename 为 bionic，该名称为我们 Ubuntu 系统的名称，修改数据源需要用到该名称
+
+编辑数据源
+vi /etc/apt/sources.list
+删除全部内容并修改为
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+更新数据源
+apt-get update
+常用 APT 命令
+安装软件包：apt-get install <Package Name>
+删除软件包：apt-get remove <Package Name>
+更新软件包列表：apt-get update
+升级有可用更新的系统(慎用)：apt-get upgrade
+搜索：apt-cache search <Package Name>
+获取包信息：apt-cache show <Package Name>
+删除包及配置文件：apt-get remove <Package Name> --purge
+了解使用依赖：apt-cache depends <Package Name>
+查看被哪些包依赖：apt-cache rdepends <Package Name>
+安装相关的编译环境：apt-get build-dep <Package Name>
+下载源代码：apt-get source <Package Name>
+清理无用的包：apt-get clean && apt-get autoclean
+检查是否有损坏的依赖：apt-get check

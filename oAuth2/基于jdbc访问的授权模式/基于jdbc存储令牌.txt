@@ -1,0 +1,58 @@
+由于使用了 JDBC 存储，我们需要增加相关依赖，数据库连接池使用 HikariCP
+
+<dependency>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>${hikaricp.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+    <exclusions>
+        <!-- 排除 tomcat-jdbc 以使用 HikariCP -->
+        <exclusion>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>${mysql.version}</version>
+</dependency>
+
+
+application.yml
+spring:
+  application:
+    name: oauth2-server
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://192.168.141.130:3306/oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+server:
+  port: 8080
+
+
+
+因使用了Mysql最新版驱动所以报错
+
+解决方案：
+方案1、在项目代码-数据库连接URL后，加上 （注意大小写必须一致）
+?serverTimezone=UTC
+
+
+方案2、use mysql在mysql中设置时区，默认为SYSTEM
+set global time_zone='+8:00'

@@ -1,0 +1,17 @@
+认证服务器所需依赖----springboot没有指定spring-cloud-starter-oauth2的版本号，需要自己添加，
+清除idea（build->rebuild）缓存，不然会一直提示下载spring-cloud-starter-oauth2失败
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-oauth2 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>

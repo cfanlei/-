@@ -1,4 +1,4 @@
-https://www.cnblogs.com/laumians-notes/p/9069498.html
+
 ##配置环境变量
 
 ##配置初始化的my.ini文件
@@ -29,8 +29,14 @@ port=3306
 default-character-set=utf8
 
 ##安装mysql
-mysqld --initialize --console
-mysqld --install [服务名]
+mysqld --initialize --console 
+#  注意需要记住初始密码
+
+mysqld install [服务名]
+mysqld remove   # 删除mysql
+# 启动/关闭服务
+net start/stop mysql 
 mysql -u root -p
+# 修改密码
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码'; 
 exit

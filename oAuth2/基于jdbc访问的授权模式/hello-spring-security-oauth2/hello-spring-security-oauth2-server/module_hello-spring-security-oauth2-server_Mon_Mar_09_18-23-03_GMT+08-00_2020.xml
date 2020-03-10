@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_hello-spring-security-oauth2-server" default="compile.module.hello-spring-security-oauth2-server">
+  <dirname property="module.hello-spring-security-oauth2-server.basedir" file="${ant.file.module_hello-spring-security-oauth2-server}"/>
+  
+  <property name="module.jdk.home.hello-spring-security-oauth2-server" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.hello-spring-security-oauth2-server" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.hello-spring-security-oauth2-server" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.hello-spring-security-oauth2-server" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="hello-spring-security-oauth2-server.output.dir" value="${module.hello-spring-security-oauth2-server.basedir}/target/classes"/>
+  <property name="hello-spring-security-oauth2-server.testoutput.dir" value="${module.hello-spring-security-oauth2-server.basedir}/target/test-classes"/>
+  
+  <path id="hello-spring-security-oauth2-server.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hello-spring-security-oauth2-server.module.production.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2-server}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.5.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.4.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.3.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.2.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:3.11.1.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:2.23.4.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.9.12.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy-agent:1.9.12.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.6.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.5.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.xmlunit:xmlunit-core:2.6.2.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-oauth2:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-context:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-crypto:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-commons:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-rsa:1.0.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_io.micrometer:micrometer-core:1.1.4.classpath"/>
+    <path refid="library.maven:_org.hdrhistogram:hdrhistogram:2.1.9.classpath"/>
+    <path refid="library.maven:_org.latencyutils:latencyutils:2.0.3.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.2.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-core:2.3.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.0.1.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth:spring-security-oauth2:2.3.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-config:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-jwt:1.0.9.release.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcpkix-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.19.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.16.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.7.release.classpath"/>
+    <path refid="library.maven:_com.zaxxer:hikaricp:3.2.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.26.classpath"/>
+    <path refid="library.maven:_tk.mybatis:mapper-spring-boot-stater:unknown.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-jdbc:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:5.1.7.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-server.runtime.production.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2-server.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.5.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.4.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.3.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.2.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:3.11.1.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:2.23.4.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.9.12.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy-agent:1.9.12.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.6.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.5.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.xmlunit:xmlunit-core:2.6.2.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-oauth2:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-context:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-crypto:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-commons:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-rsa:1.0.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_io.micrometer:micrometer-core:1.1.4.classpath"/>
+    <path refid="library.maven:_org.hdrhistogram:hdrhistogram:2.1.9.classpath"/>
+    <path refid="library.maven:_org.latencyutils:latencyutils:2.0.3.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.2.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-core:2.3.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.0.1.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth:spring-security-oauth2:2.3.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-config:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-jwt:1.0.9.release.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcpkix-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.19.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.16.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.7.release.classpath"/>
+    <path refid="library.maven:_com.zaxxer:hikaricp:3.2.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.26.classpath"/>
+    <path refid="library.maven:_tk.mybatis:mapper-spring-boot-stater:unknown.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-jdbc:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:5.1.7.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-server.module.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2-server}"/>
+    <pathelement location="${hello-spring-security-oauth2-server.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.5.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.4.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.3.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.2.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:3.11.1.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:2.23.4.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.9.12.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy-agent:1.9.12.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.6.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.5.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.xmlunit:xmlunit-core:2.6.2.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-oauth2:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-context:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-crypto:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-commons:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-rsa:1.0.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_io.micrometer:micrometer-core:1.1.4.classpath"/>
+    <path refid="library.maven:_org.hdrhistogram:hdrhistogram:2.1.9.classpath"/>
+    <path refid="library.maven:_org.latencyutils:latencyutils:2.0.3.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.2.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-core:2.3.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.0.1.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth:spring-security-oauth2:2.3.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-config:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-jwt:1.0.9.release.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcpkix-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.19.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.16.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.7.release.classpath"/>
+    <path refid="library.maven:_com.zaxxer:hikaricp:3.2.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.26.classpath"/>
+    <path refid="library.maven:_tk.mybatis:mapper-spring-boot-stater:unknown.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-jdbc:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:5.1.7.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-server.runtime.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2-server.testoutput.dir}"/>
+    <pathelement location="${hello-spring-security-oauth2-server.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-logging:2.1.5.release.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.2.3.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.2.3.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-to-slf4j:2.11.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.11.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.26.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.23.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.4.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.3.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.2.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:3.11.1.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:2.23.4.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy:1.9.12.classpath"/>
+    <path refid="library.maven:_net.bytebuddy:byte-buddy-agent:1.9.12.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.6.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.5.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.xmlunit:xmlunit-core:2.6.2.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-oauth2:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-starter:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-context:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-crypto:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-commons:2.1.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-rsa:1.0.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator-autoconfigure:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-actuator:2.1.5.release.classpath"/>
+    <path refid="library.maven:_io.micrometer:micrometer-core:1.1.4.classpath"/>
+    <path refid="library.maven:_org.hdrhistogram:hdrhistogram:2.1.9.classpath"/>
+    <path refid="library.maven:_org.latencyutils:latencyutils:2.0.3.classpath"/>
+    <path refid="library.maven:_org.springframework.cloud:spring-cloud-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-security:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.2.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.8.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-core:2.3.0.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.0.1.classpath"/>
+    <path refid="library.maven:_org.springframework.security.oauth:spring-security-oauth2:2.3.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-core:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-config:5.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-web:5.1.5.release.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.13.classpath"/>
+    <path refid="library.maven:_org.springframework.security:spring-security-jwt:1.0.9.release.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcpkix-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.56.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-web:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-json:2.1.5.release.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.8.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-tomcat:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-core:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-el:9.0.19.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.embed:tomcat-embed-websocket:9.0.19.classpath"/>
+    <path refid="library.maven:_org.hibernate.validator:hibernate-validator:6.0.16.final.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:2.0.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.2.final.classpath"/>
+    <path refid="library.maven:_com.fasterxml:classmate:1.4.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.1.7.release.classpath"/>
+    <path refid="library.maven:_com.zaxxer:hikaricp:3.2.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.26.classpath"/>
+    <path refid="library.maven:_tk.mybatis:mapper-spring-boot-stater:unknown.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-jdbc:2.1.5.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:5.1.7.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:5.1.7.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:8.0.16.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.hello-spring-security-oauth2-server">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hello-spring-security-oauth2-server">
+    <patternset refid="excluded.from.module.hello-spring-security-oauth2-server"/>
+  </patternset>
+  
+  <path id="hello-spring-security-oauth2-server.module.sourcepath">
+    <dirset dir="${module.hello-spring-security-oauth2-server.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-server.module.test.sourcepath">
+    <dirset dir="${module.hello-spring-security-oauth2-server.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.hello-spring-security-oauth2-server" depends="compile.module.hello-spring-security-oauth2-server.production,compile.module.hello-spring-security-oauth2-server.tests" description="Compile module hello-spring-security-oauth2-server"/>
+  
+  <target name="compile.module.hello-spring-security-oauth2-server.production" depends="register.custom.compilers" description="Compile module hello-spring-security-oauth2-server; production classes">
+    <mkdir dir="${hello-spring-security-oauth2-server.output.dir}"/>
+    <javac2 destdir="${hello-spring-security-oauth2-server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.hello-spring-security-oauth2-server}/javac">
+      <compilerarg line="${compiler.args.hello-spring-security-oauth2-server}"/>
+      <bootclasspath refid="hello-spring-security-oauth2-server.module.bootclasspath"/>
+      <classpath refid="hello-spring-security-oauth2-server.module.production.classpath"/>
+      <src refid="hello-spring-security-oauth2-server.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.hello-spring-security-oauth2-server"/>
+    </javac2>
+    
+    <copy todir="${hello-spring-security-oauth2-server.output.dir}">
+      <fileset dir="${module.hello-spring-security-oauth2-server.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.hello-spring-security-oauth2-server.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.hello-spring-security-oauth2-server.tests" depends="register.custom.compilers,compile.module.hello-spring-security-oauth2-server.production" description="compile module hello-spring-security-oauth2-server; test classes" unless="skip.tests">
+    <mkdir dir="${hello-spring-security-oauth2-server.testoutput.dir}"/>
+    <javac2 destdir="${hello-spring-security-oauth2-server.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.hello-spring-security-oauth2-server}/javac">
+      <compilerarg line="${compiler.args.hello-spring-security-oauth2-server}"/>
+      <bootclasspath refid="hello-spring-security-oauth2-server.module.bootclasspath"/>
+      <classpath refid="hello-spring-security-oauth2-server.module.classpath"/>
+      <src refid="hello-spring-security-oauth2-server.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.hello-spring-security-oauth2-server"/>
+    </javac2>
+    
+    <copy todir="${hello-spring-security-oauth2-server.testoutput.dir}">
+      <fileset dir="${module.hello-spring-security-oauth2-server.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.hello-spring-security-oauth2-server" description="cleanup module">
+    <delete dir="${hello-spring-security-oauth2-server.output.dir}"/>
+    <delete dir="${hello-spring-security-oauth2-server.testoutput.dir}"/>
+  </target>
+</project>

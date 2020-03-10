@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_hello-spring-security-oauth2-dependencies" default="compile.module.hello-spring-security-oauth2-dependencies">
+  <dirname property="module.hello-spring-security-oauth2-dependencies.basedir" file="${ant.file.module_hello-spring-security-oauth2-dependencies}"/>
+  
+  <property name="module.jdk.home.hello-spring-security-oauth2-dependencies" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.hello-spring-security-oauth2-dependencies" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.hello-spring-security-oauth2-dependencies" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.hello-spring-security-oauth2-dependencies" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="hello-spring-security-oauth2-dependencies.output.dir" value="${module.hello-spring-security-oauth2-dependencies.basedir}/target/classes"/>
+  <property name="hello-spring-security-oauth2-dependencies.testoutput.dir" value="${module.hello-spring-security-oauth2-dependencies.basedir}/target/test-classes"/>
+  
+  <path id="hello-spring-security-oauth2-dependencies.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hello-spring-security-oauth2-dependencies.module.production.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2-dependencies}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-dependencies.runtime.production.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2-dependencies.output.dir}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-dependencies.module.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2-dependencies}"/>
+    <pathelement location="${hello-spring-security-oauth2-dependencies.output.dir}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2-dependencies.runtime.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2-dependencies.testoutput.dir}"/>
+    <pathelement location="${hello-spring-security-oauth2-dependencies.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.hello-spring-security-oauth2-dependencies">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hello-spring-security-oauth2-dependencies">
+    <patternset refid="excluded.from.module.hello-spring-security-oauth2-dependencies"/>
+  </patternset>
+  
+  
+  <target name="compile.module.hello-spring-security-oauth2-dependencies" depends="compile.module.hello-spring-security-oauth2-dependencies.production,compile.module.hello-spring-security-oauth2-dependencies.tests" description="Compile module hello-spring-security-oauth2-dependencies"/>
+  
+  <target name="compile.module.hello-spring-security-oauth2-dependencies.production" depends="register.custom.compilers" description="Compile module hello-spring-security-oauth2-dependencies; production classes"/>
+  
+  <target name="compile.module.hello-spring-security-oauth2-dependencies.tests" depends="register.custom.compilers,compile.module.hello-spring-security-oauth2-dependencies.production" description="compile module hello-spring-security-oauth2-dependencies; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.hello-spring-security-oauth2-dependencies" description="cleanup module">
+    <delete dir="${hello-spring-security-oauth2-dependencies.output.dir}"/>
+    <delete dir="${hello-spring-security-oauth2-dependencies.testoutput.dir}"/>
+  </target>
+</project>

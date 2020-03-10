@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_hello-spring-security-oauth2" default="compile.module.hello-spring-security-oauth2">
+  <dirname property="module.hello-spring-security-oauth2.basedir" file="${ant.file.module_hello-spring-security-oauth2}"/>
+  
+  <property name="module.jdk.home.hello-spring-security-oauth2" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.hello-spring-security-oauth2" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.hello-spring-security-oauth2" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.hello-spring-security-oauth2" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="hello-spring-security-oauth2.output.dir" value="${module.hello-spring-security-oauth2.basedir}/target/classes"/>
+  <property name="hello-spring-security-oauth2.testoutput.dir" value="${module.hello-spring-security-oauth2.basedir}/target/test-classes"/>
+  
+  <path id="hello-spring-security-oauth2.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hello-spring-security-oauth2.module.production.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2.runtime.production.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2.output.dir}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2.module.classpath">
+    <path refid="${module.jdk.classpath.hello-spring-security-oauth2}"/>
+    <pathelement location="${hello-spring-security-oauth2.output.dir}"/>
+  </path>
+  
+  <path id="hello-spring-security-oauth2.runtime.module.classpath">
+    <pathelement location="${hello-spring-security-oauth2.testoutput.dir}"/>
+    <pathelement location="${hello-spring-security-oauth2.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.hello-spring-security-oauth2">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hello-spring-security-oauth2">
+    <patternset refid="excluded.from.module.hello-spring-security-oauth2"/>
+  </patternset>
+  
+  
+  <target name="compile.module.hello-spring-security-oauth2" depends="compile.module.hello-spring-security-oauth2.production,compile.module.hello-spring-security-oauth2.tests" description="Compile module hello-spring-security-oauth2"/>
+  
+  <target name="compile.module.hello-spring-security-oauth2.production" depends="register.custom.compilers" description="Compile module hello-spring-security-oauth2; production classes"/>
+  
+  <target name="compile.module.hello-spring-security-oauth2.tests" depends="register.custom.compilers,compile.module.hello-spring-security-oauth2.production" description="compile module hello-spring-security-oauth2; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.hello-spring-security-oauth2" description="cleanup module">
+    <delete dir="${hello-spring-security-oauth2.output.dir}"/>
+    <delete dir="${hello-spring-security-oauth2.testoutput.dir}"/>
+  </target>
+</project>
